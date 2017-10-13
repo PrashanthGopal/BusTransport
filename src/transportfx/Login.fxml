@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="739.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transportfx.LoginController">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="739.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transportfx.LoginController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="gradient">
          <children>
@@ -29,12 +29,12 @@
                         <Font name="Roboto Black" size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXTextField focusColor="#b5b5b5" labelFloat="true" layoutX="93.0" layoutY="126.0" prefHeight="30.0" prefWidth="290.0" promptText="Enter email / phone number" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                  <JFXTextField fx:id="txtUserId" focusColor="#b5b5b5" labelFloat="true" layoutX="93.0" layoutY="126.0" prefHeight="30.0" prefWidth="290.0" promptText="Enter email / phone number" style="-fx-text-fill: Black;" unFocusColor="WHITE">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXPasswordField focusColor="#f8f8f8" labelFloat="true" layoutX="93.0" layoutY="179.0" prefHeight="28.0" prefWidth="290.0" promptText="Enter password" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                  <JFXPasswordField fx:id="txtpassword" focusColor="#f8f8f8" labelFloat="true" layoutX="93.0" layoutY="179.0" prefHeight="28.0" prefWidth="290.0" promptText="Enter password" style="-fx-text-fill: Black;" unFocusColor="WHITE">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>

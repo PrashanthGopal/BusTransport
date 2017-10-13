@@ -5,9 +5,16 @@
  */
 package transportfx;
 
+import classes.DbHandler;
 import com.jfoenix.controls.JFXButton;
-import java.io.IOException;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXSnackbar;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,29 +27,33 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/**
- * FXML Controller class
- *
- * @author danml
- */
 public class LoginController implements Initializable {
 
     @FXML
     private JFXButton btnLogin;
     @FXML
     private ImageView imgLogin;
+    
+    private DbHandler handler;
+    private Connection conn;
+    private Statement stmt;
+    private PreparedStatement pst;
+    private ResultSet rs;
+    @FXML
+    private JFXTextField txtUserId;
+    @FXML
+    private JFXPasswordField txtpassword;
+    @FXML
+    private StackPane rootPane;
 
-    /**
-     * Initializes the controller class.
-     *
-     * @param url
-     * @param rb
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Instantiate db class
+        handler = new DbHandler();
         //Animate imageview
         ScaleTransition transition = new ScaleTransition(Duration.seconds(4), imgLogin);
         transition.setToX(2);
@@ -56,13 +67,23 @@ public class LoginController implements Initializable {
     @FXML
     private void doLogin(ActionEvent event) {
         try {
+            String query = "SELECT user_name FROM user_details where user_name='"+txtUserId.getText()+"' and password='"+txtpassword.getText()+"'";
+            conn = handler.getConnection();
+            ResultSet set = conn.createStatement().executeQuery(query);
+            if(!set.next()){
+                
+                JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+                fXSnackbar.show("UserName/Password is Invalid", 4000);
+                return;
+            }
+            
             btnLogin.getScene().getWindow().hide();
             Parent root = FXMLLoader.load(getClass().getResource("Menus.fxml"));
             Scene scene = new Scene(root);
             Stage driverStage = new Stage();
             driverStage.setScene(scene);
             driverStage.show();
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(MenusController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

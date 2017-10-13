@@ -39,11 +39,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-/**
- * FXML Controller class
- *
- * @author danml
- */
+
 public class TicketsController implements Initializable {
 
     @FXML
@@ -133,7 +129,7 @@ public class TicketsController implements Initializable {
         txtRouteName.setText(null);
         comboRouteId.getSelectionModel().clearSelection();
         comboBusNo.getSelectionModel().clearSelection();
-        dtBoardDate.setTime(null);
+        dtBoardDate.setValue(null);
     }
 
     @FXML

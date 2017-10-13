@@ -114,6 +114,11 @@ TiTled pane Customusation
 .jfx-snackbar-content{
     -fx-background-color:#00A65A;
 }
+
+.jfx-snackbar-content-red{
+    -fx-background-color:#a63700;
+}
+
 .jfx-snackbar-toast{
     -fx-text-fill:white;
     -fx-font-size:14;

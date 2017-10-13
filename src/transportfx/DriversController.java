@@ -53,11 +53,6 @@ import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import models.driver;
 
-/**
- * FXML Controller class
- *
- * @author danml
- */
 public class DriversController implements Initializable {
 
     @FXML
@@ -236,18 +231,17 @@ public class DriversController implements Initializable {
             pst.setString(11, txtDriverId.getText().trim());
             //save
             //System.out.println("Size is :" +byteOutput.size());
-           
 
             int success = pst.executeUpdate();
             if (success == 1) {
-            JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
-            fXSnackbar.show("Driver Added successful", 4000);
-            buildDriversTable();
-            clearFields();
-        }else{
-            JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
-            fXSnackbar.show("Failed To Add Driver", 4000);
-        }
+                JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+                fXSnackbar.show("Driver Added successful", 4000);
+                buildDriversTable();
+                clearFields();
+            } else {
+                JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+                fXSnackbar.show("Failed To Add Driver", 4000);
+            }
             //System.out.println(blob);
             //System.out.println(success);
 
@@ -257,20 +251,23 @@ public class DriversController implements Initializable {
             Logger.getLogger(DriversController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private void clearFields() {
 
+    private void clearFields() {
+        comboLicence.getSelectionModel().clearSelection();
+        comboYear.getSelectionModel().clearSelection();
+        txtFirstName.setText(null);
+        txtMiddleName.setText(null);
+        txtSurName.setText(null);
+        dtDOB.setValue(null);
+        txtPhone.setText(null);
+        txtDriverId.setText(null);
     }
 
     private void populateCombos() {
-        
-            for (int i = 2017; i > 1970; i--) {
-                comboYear.getItems().addAll(i);
-            }
-            comboLicence.getItems().addAll("Select", "Permanent", "Temporary");
-            
-       
-
+        for (int i = 2017; i > 1970; i--) {
+            comboYear.getItems().addAll(i);
+        }
+        comboLicence.getItems().addAll("Select", "Permanent", "Temporary");
     }
 
     private String getGender() {
@@ -310,7 +307,7 @@ public class DriversController implements Initializable {
                 String license = set.getString(8);
                 String issueD = set.getString(7);
                 String contactNo = set.getString(10);
-                
+
                 data.add(new driver(id, names, dob, geda, contactNo, status, license, issueD));
             }
             colNames.setCellValueFactory(new PropertyValueFactory<>("names"));
@@ -329,5 +326,5 @@ public class DriversController implements Initializable {
         }
 
     }
-    
+
 }

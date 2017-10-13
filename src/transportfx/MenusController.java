@@ -30,10 +30,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author danml
- */
 public class MenusController implements Initializable {
 
     @FXML

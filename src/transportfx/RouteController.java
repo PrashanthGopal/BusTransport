@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,10 +40,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-/**
- *
- * @author pgopalakrishnaiah
- */
+
 public class RouteController implements Initializable  {
 
     @FXML
@@ -189,7 +187,7 @@ public class RouteController implements Initializable  {
      comboTo.getSelectionModel().clearSelection();
      dtDeptureTime.setValue(null);
      dtArrvalTime.setValue(null);
-     dtDeptureTime.setTime(null);
-     dtArrvalTime.setTime(null);
+     dtDeptureTime.setTime(LocalTime.now());
+     dtArrvalTime.setTime(LocalTime.now());
     }
 }

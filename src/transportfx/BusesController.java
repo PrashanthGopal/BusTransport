@@ -43,11 +43,7 @@ import javafx.util.Duration;
 import javafx.util.StringConverter;
 import models.Movements;
 
-/**
- * FXML Controller class
- *
- * @author danml
- */
+
 public class BusesController implements Initializable {
 
     @FXML
