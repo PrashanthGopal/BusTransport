@@ -1,0 +1,99 @@
+Route(route_id,route_name,source,destination,stops,departure_origin,arrival_dest)
+driver(driver_id,sname,mname,lname,dob,gender,contact_no,marital_status,license_type,license_issued_date,photo)
+buses(bus_no,model,capacity,purchase_date,insurance_status,driver_id,route_id)
+passenger(pno,pname,paddress,pcontact_no,pemail)
+tickets(ticket_id,origin,destination,amount,ticket_date,pno,route_id,bus_no,no_tickets)
+--seatavailable(bus_no,ticket_date,available_seat)
+user_details(user_id,user_name,password,contact_no,email,utype,login_time)
+
+
+----schema----
+
+CREATE DATABASE `reservation`;
+
+use reservation;
+
+create table user_details(
+	user_id int primary key auto_increment,
+    user_name varchar(100),
+    password varchar(100),
+	contact_no varchar(100),
+	email varchar(100),
+	gender varchar(100),
+	dob varchar(100),
+	utype varchar(100),
+	created_dttm varchar(100)
+);
+
+create table route(
+	route_id varchar(100) primary key,
+	route_name varchar(100),
+	source varchar(100),
+	destination varchar(100),
+	stops varchar(100),
+	departure_origin varchar(100),
+	arrival_dest varchar(100)
+);
+create table driver(
+	driver_id varchar(100) primary key,
+	sname varchar(100),
+	mname varchar(100),
+	lname varchar(100),
+	dob date,
+	gender varchar(100),
+	contact_no varchar(100),
+	marital_status varchar(100),
+	license_type varchar(100),
+	license_issued_date varchar(100),
+	photo blob
+);
+
+create table buses(
+	bus_no varchar(100) primary key,
+	model varchar(100),
+	capacity int,
+	purchase_date date,
+	insurance_status varchar(100),
+	driver_id varchar(100) references driver(driver_id),
+	route_id varchar(100) references route(route_id)
+);
+
+create table passenger(
+	pno varchar(100) primary key,
+	pname varchar(100),
+	paddress varchar(100),
+	pcontact_no bigint(100),
+	pemail varchar(100)
+);
+
+create table tickets(
+	ticket_id varchar(100) primary key,
+	origin varchar(100),
+	destination varchar(100),
+	amount int(100),
+	ticket_date date,
+	pno varchar(100) references passenger(pno),
+	route_id varchar(100) references route(route_id),
+	bus_no varchar(100) references buses(bus_no),
+	no_tickets int
+);
+
+
+-- seed data---
+insert into user_details(user_name,password,utype,login_time) value('prashi','prashi','Admin',now());
+insert into user_details(user_name,password,utype,login_time) value('prashi','prashi','Guest',now());
+
+----------------
+
+SELECT t.ticket_id as Ticket_id,t.origin,t.destination,t.amount,t.ticket_date as Boarding_Date,t.no_tickets as Num_Tickets,t.bus_no as Bus_Number,r.route_id as route_id,r.route_name as route_Name,p.pname as passenger_Name,p.pcontact_no as passenger_Phone FROM tickets t,route r, buses b,passenger p where t.pno = p.pno and t.route_id = r.route_id and t.bus_no = b.bus_no;
+
+
+SELECT t.ticket_id,t.origin,t.destination,t.amount,t.ticket_date,t.no_tickets,t.bus_no,r.route_id,r.route_name,p.pname,p.pcontact_no FROM 
+tickets t,route r, buses b,passenger p where t.pno = p.pno and t.route_id = r.route_id and t.bus_no = b.bus_no
+
+
+tutorials:
+http://code.makery.ch/library/javafx-8-tutorial/
+
+
+SELECT user_name as UserName,contact_no as Contact,email,gender,dob as DOB,utype as UserType FROM user_details

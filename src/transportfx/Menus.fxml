@@ -15,78 +15,97 @@
             <Font name="Roboto Medium" size="23.0" />
          </font>
       </Label>
-      <HBox fx:id="boxMenus" layoutX="63.0" layoutY="197.0" prefHeight="227.0" prefWidth="921.0" spacing="20.0">
+      <HBox fx:id="boxMenus" layoutX="54.0" layoutY="197.0" prefHeight="216.0" prefWidth="930.0" spacing="20.0">
          <children>
-            <AnchorPane fx:id="paneDrivers" onMouseClicked="#switchToDrivers" prefHeight="227.0" prefWidth="207.0" styleClass="menus">
+            <AnchorPane fx:id="paneDrivers" onMouseClicked="#switchToDrivers" prefHeight="216.0" prefWidth="162.0" styleClass="menus">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="54.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="31.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/User%20Settings-02-WF.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="77.0" layoutY="135.0" text="Drivers" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="50.0" layoutY="133.0" text="Drivers" textFill="WHITE">
                      <font>
                         <Font name="Roboto Black" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="18.0" layoutY="163.0" prefHeight="51.0" prefWidth="171.0" text="Add Driver and modify" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label alignment="CENTER" layoutY="163.0" prefHeight="51.0" prefWidth="151.0" text="Add Driver and modify" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Roboto Medium" size="11.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="paneTickets" onMouseClicked="#switchToTickets" prefHeight="227.0" prefWidth="207.0" styleClass="menus">
+            <AnchorPane fx:id="paneTickets" onMouseClicked="#switchToTickets" prefHeight="227.0" prefWidth="158.0" styleClass="menus">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="54.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/Ticket.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="77.0" layoutY="135.0" text="Tickets" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="52.0" layoutY="135.0" text="Tickets" textFill="WHITE">
                      <font>
                         <Font name="Roboto Black" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="18.0" layoutY="163.0" prefHeight="51.0" prefWidth="171.0" text="Book Tickets" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                  <Label alignment="CENTER" layoutY="165.0" prefHeight="51.0" prefWidth="163.0" text="Book Tickets" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                      <font>
                         <Font name="Roboto Medium" size="11.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="paneBuses" onMouseClicked="#switchToBuses" prefHeight="227.0" prefWidth="207.0" styleClass="menus">
+            <AnchorPane fx:id="paneBuses" onMouseClicked="#switchToBuses" prefHeight="216.0" prefWidth="166.0" styleClass="menus">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="54.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/Van-02-WF.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="77.0" layoutY="135.0" text="Buses" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="52.0" layoutY="133.0" text="Buses" textFill="WHITE">
                      <font>
                         <Font name="Roboto Black" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="18.0" layoutY="163.0" prefHeight="51.0" prefWidth="171.0" text="Manage Buses" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label alignment="CENTER" layoutY="163.0" prefHeight="51.0" prefWidth="155.0" text="Manage Buses" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Roboto Medium" size="11.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="paneRoutes" onMouseClicked="#switchToRoute" prefHeight="227.0" prefWidth="207.0" styleClass="menus">
+            <AnchorPane fx:id="paneRoutes" onMouseClicked="#switchToRoute" prefHeight="216.0" prefWidth="137.0" styleClass="menus">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="54.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="31.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/target.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="77.0" layoutY="135.0" text="Routes" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="51.0" layoutY="133.0" text="Routes" textFill="WHITE">
                      <font>
                         <Font name="Roboto Black" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="18.0" layoutY="163.0" prefHeight="51.0" prefWidth="171.0" text="Manage Routes" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label alignment="CENTER" layoutY="163.0" prefHeight="51.0" prefWidth="162.0" text="Manage Routes" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Roboto Medium" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneUsers" onMouseClicked="#switchToUsers" prefHeight="227.0" prefWidth="143.0" styleClass="menus">
+               <children>
+                  <ImageView fitHeight="69.0" fitWidth="86.0" layoutX="41.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/user.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="50.0" layoutY="133.0" text="Users" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Black" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutY="163.0" prefHeight="51.0" prefWidth="151.0" text="Add Users and modify" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Roboto Medium" size="11.0" />
                      </font>

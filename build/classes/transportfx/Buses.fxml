@@ -198,12 +198,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TableView fx:id="tableBusesList" layoutX="14.0" layoutY="14.0" prefHeight="454.0" prefWidth="1080.0" />
-                              <JFXButton buttonType="RAISED" layoutX="839.0" layoutY="468.0" onAction="#selectedDelete" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #c95a3e;" text="Delete Selected Row" textFill="WHITE">
-                                 <font>
-                                    <Font name="Roboto Medium" size="15.0" />
-                                 </font>
-                              </JFXButton>
+                                        <TableView fx:id="tableBusesList" layoutX="14.0" layoutY="14.0" prefHeight="488.0" prefWidth="1080.0" />
                                     </children>
                                 </AnchorPane>
                             </content>

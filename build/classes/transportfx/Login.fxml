@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="739.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transportfx.LoginController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="739.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transportfx.LoginController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="gradient">
          <children>
@@ -29,12 +29,12 @@
                         <Font name="Roboto Black" size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXTextField fx:id="txtUserId" focusColor="#b5b5b5" labelFloat="true" layoutX="93.0" layoutY="126.0" prefHeight="30.0" prefWidth="290.0" promptText="Enter email / phone number" style="-fx-text-fill: Black;" unFocusColor="WHITE">
+                  <JFXTextField focusColor="#b5b5b5" labelFloat="true" layoutX="93.0" layoutY="126.0" prefHeight="30.0" prefWidth="290.0" promptText="Enter email / phone number" style="-fx-text-fill: white;" unFocusColor="WHITE">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXPasswordField fx:id="txtpassword" focusColor="#f8f8f8" labelFloat="true" layoutX="93.0" layoutY="179.0" prefHeight="28.0" prefWidth="290.0" promptText="Enter password" style="-fx-text-fill: Black;" unFocusColor="WHITE">
+                  <JFXPasswordField focusColor="#f8f8f8" labelFloat="true" layoutX="93.0" layoutY="179.0" prefHeight="28.0" prefWidth="290.0" promptText="Enter password" style="-fx-text-fill: white;" unFocusColor="WHITE">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
@@ -47,7 +47,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </Label>
-                  <JFXButton buttonType="RAISED" layoutX="245.0" layoutY="225.0" onAction="#doSignUp" prefHeight="30.0" prefWidth="132.0" ripplerFill="#21b8dd" style="-fx-background-color: #298DC5; -fx-text-fill: white;" text="Sign up" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="225.0">
+                  <JFXButton buttonType="RAISED" layoutX="245.0" layoutY="225.0" prefHeight="30.0" prefWidth="132.0" ripplerFill="#21b8dd" style="-fx-background-color: #298DC5; -fx-text-fill: white;" text="Sign up" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="225.0">
                      <font>
                         <Font name="Roboto Black" size="16.0" />
                      </font>

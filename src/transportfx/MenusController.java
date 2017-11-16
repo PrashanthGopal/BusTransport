@@ -47,9 +47,12 @@ public class MenusController implements Initializable {
     private HBox boxMenus;
     @FXML
     private AnchorPane paneRoutes;
+    @FXML
+    private AnchorPane paneUsers;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        System.out.println("User Logged In: "+LoginController.userIdLogin);
         setUpFabs();
         setUpRipples();
 
@@ -172,8 +175,9 @@ public class MenusController implements Initializable {
         JFXRippler ripplerDriver = new JFXRippler(paneDrivers, JFXRippler.RipplerMask.RECT, JFXRippler.RipplerPos.FRONT);
         JFXRippler ripplerBuses = new JFXRippler(paneBuses, JFXRippler.RipplerMask.RECT, JFXRippler.RipplerPos.FRONT);
         JFXRippler ripplerTickets = new JFXRippler(paneTickets, JFXRippler.RipplerMask.RECT, JFXRippler.RipplerPos.FRONT);
+        JFXRippler ripplerUsers = new JFXRippler(paneUsers, JFXRippler.RipplerMask.RECT, JFXRippler.RipplerPos.FRONT);
 
-        boxMenus.getChildren().addAll(ripplerUser, ripplerDriver, ripplerBuses, ripplerTickets);
+        boxMenus.getChildren().addAll(ripplerUser, ripplerDriver, ripplerBuses, ripplerTickets,ripplerUsers);
     }
 
     @FXML
@@ -189,6 +193,20 @@ public class MenusController implements Initializable {
             Logger.getLogger(MenusController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    @FXML
+    private void switchToUsers(MouseEvent event) {
+        try {
+            paneUsers.getScene().getWindow().hide();
+            Parent root = FXMLLoader.load(getClass().getResource("Users.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MenusController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

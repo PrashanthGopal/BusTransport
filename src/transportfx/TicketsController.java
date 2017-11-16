@@ -21,6 +21,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -38,6 +41,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.Duration;
 
 
 public class TicketsController implements Initializable {
@@ -84,6 +88,14 @@ public class TicketsController implements Initializable {
     private JFXDatePicker dtBoardDate;
     @FXML
     private JFXButton bookTicket;
+    
+    public static String passgName;
+    public static String source;
+    public static String destination;
+    public static String boardingDate;
+    public static String route;
+    public static String noOfTckts;
+    
 
     /**
      * Initializes the controller class.
@@ -97,9 +109,10 @@ public class TicketsController implements Initializable {
         handler = new DbHandler();
         // populate combos
         populateCombos();
-
+        animateBus();
         //Populate tables
         buildDataTable();
+        
     }
 
     @FXML
@@ -115,6 +128,21 @@ public class TicketsController implements Initializable {
             Logger.getLogger(DriversController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private void goTicketAckno() {
+        try {
+            imgBack.getScene().getWindow().hide();
+            Parent root = FXMLLoader.load(getClass().getResource("TicketsAcknowledge.fxml"));
+            Scene scene = new Scene(root);
+            Stage menuStage = new Stage();
+            menuStage.setScene(scene);
+            menuStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(DriversController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
 
     private void clearField() {
         txtPNo.setText(null);
@@ -134,27 +162,48 @@ public class TicketsController implements Initializable {
 
     @FXML
     private void bookTicket(ActionEvent event) throws SQLException {
+        conn = handler.getConnection();
+        conn.setAutoCommit(false); //transaction block start
         int iPassgSuc = insertToPassg();
         int iTicketSuc = insertToTicket();
 
         if (iTicketSuc == 1 && iPassgSuc == 1) {
+            conn.commit();
             JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
             fXSnackbar.show("Ticket book successful", 4000);
             buildDataTable();
+            
+            passgName = txtPName.getText();
+            source = comboOrigin.getSelectionModel().getSelectedItem();
+            destination = comboDest.getSelectionModel().getSelectedItem();
+            boardingDate = dtBoardDate.getValue().toString();
+            route = comboRouteId.getSelectionModel().getSelectedItem();
+            noOfTckts = txtNoTckts.getText();
             clearField();
-
+            goTicketAckno();
+           
         } else {
             JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
             fXSnackbar.show("Failed To Book Tickets", 4000);
             buildDataTable();
         }
     }
+    
+    private void animateBus() {
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setAutoReverse(true);
+        KeyValue kv = new KeyValue(imgBus.xProperty(), 700);
+        KeyFrame kf = new KeyFrame(Duration.seconds(10), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.play();
+    }
 
     private int insertToPassg() {
         int success = 0;
         try {
             // Establish connection
-            conn = handler.getConnection();
+//            conn = handler.getConnection();
             String sql = "INSERT INTO passenger(pno,pname,paddress,pcontact_no,pemail) VALUES (?,?,?,?,?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, txtPNo.getText());
@@ -181,7 +230,7 @@ public class TicketsController implements Initializable {
             String routeId = comboRouteId.getSelectionModel().getSelectedItem();
             String busNo = comboBusNo.getSelectionModel().getSelectedItem();
             // Establish connection
-            conn = handler.getConnection();
+//            conn = handler.getConnection();
             String sql = "INSERT INTO tickets(ticket_id,origin,destination,amount,ticket_date,pno,route_id,bus_no,no_tickets) VALUES (?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, txtTcktId.getText());
@@ -276,4 +325,6 @@ public class TicketsController implements Initializable {
             Logger.getLogger(TicketsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    
 }

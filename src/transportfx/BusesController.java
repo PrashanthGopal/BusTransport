@@ -324,4 +324,27 @@ public class BusesController implements Initializable {
             Logger.getLogger(BusesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    private void selectedDelete(ActionEvent event) {
+        Object row = tableBusesList.getSelectionModel().getSelectedItem();
+        if (row != null){
+            String busId = String.valueOf(row).split(",")[0].substring(1);
+            System.out.println("Delete BusId"+ busId);
+            try {
+            String query = "delete FROM buses where bus_no='"+busId+"'";
+            conn = handler.getConnection();
+            conn.createStatement().executeUpdate(query);
+            buildBusesTable();
+            JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+            fXSnackbar.show("Bus Record deleted - Bus Id: "+busId, 5000);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DriversController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+            JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+            fXSnackbar.show("Please select Record", 5000);
+        }    
+    }
 }

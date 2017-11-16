@@ -190,4 +190,28 @@ public class RouteController implements Initializable  {
      dtDeptureTime.setTime(LocalTime.now());
      dtArrvalTime.setTime(LocalTime.now());
     }
+    
+    @FXML
+    private void selectedDelete(ActionEvent event) {
+        Object row = tableTickets.getSelectionModel().getSelectedItem();
+        if (row != null){
+            String routeId = String.valueOf(row).split(",")[0].substring(1);
+            System.out.println("Delete route_id"+ routeId);
+            try {
+            String query = "delete FROM route where route_id='"+routeId+"'";
+            conn = handler.getConnection();
+            conn.createStatement().executeUpdate(query);
+            buildDataTable();
+            JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+            fXSnackbar.show("Route Record deleted - Route Id: "+routeId, 5000);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DriversController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+            JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+            fXSnackbar.show("Please select Record", 5000);
+        }    
+    }
+
 }

@@ -287,7 +287,7 @@
                                        <font>
                                           <Font name="Roboto Medium" size="15.0" />
                                        </font></JFXButton>
-                                    <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="281.0" onAction="#selectedDelete" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #c95a3e;" text="Delete Selected Row" textFill="WHITE">
+                                    <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="281.0" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #214C59;" text="Print Info" textFill="WHITE">
                                        <font>
                                           <Font name="Roboto Medium" size="15.0" />
                                        </font></JFXButton>

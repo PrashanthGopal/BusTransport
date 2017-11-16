@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="transportfx.TicketsAcknowledge">
+    <children>
+        <AnchorPane prefHeight="650.0" prefWidth="1100.0">
+            <children>
+                <AnchorPane layoutX="-3.0" layoutY="-6.0" prefHeight="142.0" prefWidth="1105.0" styleClass="gradient-light">
+                    <children>
+                        <ImageView fx:id="imgBack" fitHeight="35.0" fitWidth="42.0" layoutX="8.0" layoutY="5.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/left.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="imgBus" fitHeight="69.0" fitWidth="74.0" layoutX="175.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/Van-02-WF.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+                <JFXTabPane layoutX="1.0" layoutY="102.0" prefHeight="547.0" prefWidth="1100.0">
+                    <tabs>
+                        <Tab text="Boarding Pass">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <HBox focusTraversable="true" layoutX="36.0" layoutY="22.0" prefHeight="363.0" prefWidth="1023.0" spacing="40.0" styleClass="arrow">
+                                 <children>
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="440.0" prefWidth="699.0" style="-fx-background-color: #fcd1c2;" styleClass="card">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <AnchorPane layoutX="17.0" layoutY="149.0" prefHeight="59.0" prefWidth="277.0" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="96.0" text="From:" />
+                                                <Label fx:id="lblFrom" layoutX="110.0" layoutY="12.0" prefHeight="35.0" prefWidth="236.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="14.0" layoutY="81.0" prefHeight="55.0" prefWidth="631.0" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="10.0" prefHeight="35.0" prefWidth="167.0" text="Passenger Name" />
+                                                <Label fx:id="lblPassg" layoutX="239.0" layoutY="10.0" prefHeight="35.0" prefWidth="353.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutY="14.0" prefHeight="55.0" prefWidth="661.0" style="-fx-background-color: #b27863;" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label fx:id="lblPassg1" layoutX="246.0" layoutY="10.0" prefHeight="35.0" prefWidth="313.0" text="BOARDING PASS / TICKETS" textAlignment="CENTER" textFill="#f7f7f7" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="371.0" layoutY="149.0" prefHeight="59.0" prefWidth="225.0" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="80.0" text="To:" />
+                                                <Label fx:id="lblTo" layoutX="110.0" layoutY="12.0" prefHeight="35.0" prefWidth="168.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="17.0" layoutY="224.0" prefHeight="59.0" prefWidth="277.0" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="120.0" text="Boarding Date:" />
+                                                <Label fx:id="lblBoardingDate" layoutX="120.0" layoutY="12.0" prefHeight="35.0" prefWidth="226.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="371.0" layoutY="224.0" prefHeight="59.0" prefWidth="225.0" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="80.0" text="Route:" />
+                                                <Label fx:id="lblRoute" layoutX="110.0" layoutY="12.0" prefHeight="35.0" prefWidth="168.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="-2.0" layoutY="308.0" prefHeight="35.0" prefWidth="668.0" style="-fx-background-color: #b27863;" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="363.0" prefWidth="356.0" style="-fx-background-color: #fcd1c2;" styleClass="card">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <AnchorPane layoutX="14.0" layoutY="82.0" prefHeight="59.0" prefWidth="225.0" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="122.0" text="  # of Tickets" />
+                                                <Label fx:id="lblNoOfTckts" layoutX="110.0" layoutY="12.0" prefHeight="35.0" prefWidth="168.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutY="14.0" prefHeight="55.0" prefWidth="320.0" style="-fx-background-color: #b27863;" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label fx:id="lblPassg11" layoutX="53.0" layoutY="10.0" prefHeight="35.0" prefWidth="217.0" text="BOARDING PASS / TICKETS" textAlignment="CENTER" textFill="#f7f7f7" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="-1.0" layoutY="306.0" prefHeight="35.0" prefWidth="326.0" style="-fx-background-color: #b27863;" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="14.0" layoutY="152.0" prefHeight="59.0" prefWidth="225.0" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="122.0" text="Booked By:" />
+                                                <Label fx:id="lblBookBy" layoutX="110.0" layoutY="12.0" prefHeight="35.0" prefWidth="168.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="14.0" layoutY="225.0" prefHeight="59.0" prefWidth="225.0" styleClass="card">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="122.0" text="Signature:" />
+                                                <Label layoutX="110.0" layoutY="12.0" prefHeight="35.0" prefWidth="168.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                        </HBox>
+                              <JFXButton buttonType="RAISED" layoutX="898.0" layoutY="431.0" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #00B3A0;" text="Print Tickets" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Medium" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <FontAwesomeIconView fill="#f2efef" glyphName="PRINT" layoutX="915.0" layoutY="457.0" size="17.0" wrappingWidth="23.142857551574707" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </JFXTabPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

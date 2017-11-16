@@ -326,5 +326,29 @@ public class DriversController implements Initializable {
         }
 
     }
+    
+    @FXML
+    private void selectedDelete(ActionEvent event) {
+        driver row = tableDriversInfo.getSelectionModel().getSelectedItem();
+        if(row != null){
+        System.out.println("transportfx.TicketsController.selectedDelete()"+ row.getId());
+        
+        try {
+            String query = "delete FROM driver where driver_id='"+row.getId()+"'";
+            conn = handler.getConnection();
+            data = FXCollections.observableArrayList();
+            conn.createStatement().executeUpdate(query);
+            buildDriversTable();
+            JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+            fXSnackbar.show("Driver Record deleted - Driver Id: "+row.getId(), 5000);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DriversController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+            JFXSnackbar fXSnackbar = new JFXSnackbar(rootPane);
+            fXSnackbar.show("Please select Record", 5000);
+        }
+    }
 
 }
